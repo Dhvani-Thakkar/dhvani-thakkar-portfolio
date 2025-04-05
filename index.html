@@ -1,206 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhvani Thakkar | Computer Science Portfolio</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dhvani Thakkar | Computer Science Portfolio</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffdde1, #ffb6c1, #ffc1cc);
+      background-size: 400% 400%;
+      animation: ombreFlow 20s ease infinite;
+    }
+
+    @keyframes ombreFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: transparent;
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+      position: relative;
+    }
+
+    .profile {
+      margin-bottom: 1rem;
+    }
+
+    .resume-btn-container {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+    }
+
+    section {
+      background: rgba(255, 240, 245, 0.85);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.2);
+      transition: all 0.5s ease-in-out;
+      animation: fadeInUp 0.8s ease both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      background: rgba(255, 240, 245, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 182, 193, 0.4);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(255, 182, 193, 0.2);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
+    }
+
+    .btn, .resume-btn {
+      background-color: #ffb6c1;
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .btn:hover, .resume-btn:hover {
+      background-color: #ff9aa2;
+      transform: scale(1.05);
+    }
+
+    .profile img {
+      border-radius: 50%;
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
+    }
+
+    .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+    .section-header lottie-player {
+      width: 60px;
+      height: 60px;
+    }
+
+    .experience-item, .volunteer-item, .project-item {
+      background-color: white;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .experience-item h4,
+    .volunteer-item h4,
+    .project-item h4 {
+      margin: 0.5rem 0 0.2rem;
+      color: #d65a84;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="profile">
-                <img src="images/profile.jpg" alt="Dhvani Thakkar">
-                <h1>Dhvani Thakkar</h1>
-                <p>Computer Science Student | Developer | Tech Enthusiast</p>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <!-- Add resume button here -->
-                    <li>
-                        <a href="assets/Thakkar-Dhvani-Resume.pdf" download class="resume-btn">
-                            <i class="fas fa-download"></i> Resume
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+  <header>
+    <div class="container">
+      <div class="profile">
+        <img src="images/profile.jpg" alt="Dhvani Thakkar" />
+        <h1>Dhvani Thakkar</h1>
+        <p>Computer Science Student | Developer | Tech Enthusiast</p>
+      </div>
+      <div class="resume-btn-container">
+        <a href="assets/Thakkar-Dhvani-Resume.pdf" download class="resume-btn">
+          <i class="fas fa-download"></i> Resume
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#volunteering">Volunteering</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <p>I’m a Computer Science student at the University of Manitoba with a minor in Statistics. I enjoy building software tools, contributing to accessible tech, and leading community initiatives that empower diverse voices in technology.</p>
+    </section>
+
+    <section id="education" class="card">
+      <h2>Education</h2>
+      <p><strong>Bachelor of Science in Computer Science</strong> with a minor in Statistics</p>
+      <p>University of Manitoba | 09/2020 - 06/2025 (expected)</p>
+    </section>
+
+    <section id="skills" class="card">
+      <h2>Technical Skills</h2>
+      <p><strong>Languages & Frameworks:</strong> Java, JavaScript, C, C++, R, SQL, Python, ReactJS, Node.js, Next.js</p>
+      <p><strong>Databases:</strong> SQLite, Neo4j, MongoDB, DynamoDB</p>
+      <p><strong>Tools:</strong> Git, Azure DevOps, AWS, Google Cloud, Docker, Postman, CI/CD</p>
+      <p><strong>Software:</strong> IntelliJ IDEA, VS Code, Android Studio, RStudio, CLion, Power BI</p>
+    </section>
+
+    <section id="projects" class="card">
+        <div class="section-header">
+          <lottie-player src="https://lottie.host/f1fd1735-35a1-4d28-b142-71e383e0171b/FwzjAN1EZh.json" background="transparent" speed="1" loop autoplay></lottie-player>
+          <h2>Projects</h2>
         </div>
-    </header>
-
-    <!-- Floating resume button (mobile-friendly) -->
-    <a href="assets/Thakkar-Dhvani-Resume.pdf" download class="floating-resume-btn">
-        <i class="fas fa-download"></i>
-    </a>
-
-    <main class="container">
-        <section id="about" class="card">
-            <h2>About Me</h2>
-            <p>I'm a Computer Science student at the University of Manitoba with a minor in Statistics, expected to graduate in 2025. Passionate about software development, data analysis, and creating inclusive tech communities.</p>
-            <div class="social-links">
-                
-                <a href="https://www.linkedin.com/in/dhvanithakkar29/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:dhvanithakkar2003@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+12049524979"><i class="fas fa-phone"></i></a>
-            </div>
-        </section>
-
-
-        <section id="education" class="card">
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>Bachelor of Science in Computer Science with a minor in Statistics</h3>
-                <p class="institution">University of Manitoba</p>
-                <p class="date">09/2020 -- 06/2025 (expected)</p>
-                <p class="location">Winnipeg, MB</p>
-            </div>
-        </section>
-
-        <section id="skills" class="card">
-            <h2>Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <ul>
-                        <li>Java</li>
-                        <li>JavaScript</li>
-                        <li>C</li>
-                        <li>C++</li>
-                        <li>R</li>
-                        <li>SQL</li>
-                        <li>Python</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Frameworks</h3>
-                    <ul>
-                        <li>ReactJS</li>
-                        <li>Node.js</li>
-                        <li>Next.js</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Software & Tools</h3>
-                    <ul>
-                        <li>Git</li>
-                        <li>Azure DevOps</li>
-                        <li>IntelliJ IDEA</li>
-                        <li>VS Code</li>
-                        <li>Android Studio</li>
-                        <li>RStudio</li>
-                        <li>SQLite</li>
-                        <li>Neo4j</li>
-                        <li>MongoDB</li>
-                        <li>CLion</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="card">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>ReShop Android App</h3>
-                <p class="date">05/2024 - 08/2024</p>
-                <p class="tech">Java, SQL, HTML, CSS</p>
-                <ul>
-                    <li>Directed a team to develop a Depop-inspired e-commerce platform prototype by coordinating tasks and managing code integration</li>
-                    <li>Integrated user authentication and item listing features to enhance security and create a streamlined interface</li>
-                </ul>
-                <a href="projects/reshop-android-app.html" class="btn">View Details</a>
-            </div>
-            
-            <div class="project">
-                <h3>FIFA 2022 Players Database</h3>
-                <p class="date">09/2023 - 12/2023</p>
-                <p class="tech">Java, SQL</p>
-                <ul>
-                    <li>Transformed a 19,000+ row CSV file into a normalized SQL database</li>
-                    <li>Engineered efficient SQL queries to facilitate rapid data manipulation and extraction</li>
-                </ul>
-                <a href="projects/fifa-database.html" class="btn">View Details</a>
-            </div>
-            
-            <div class="project">
-                <h3>Group Collaboration System</h3>
-                <p class="date">09/2022 - 12/2022</p>
-                <p class="tech">HTML, JavaScript, CSS</p>
-                <ul>
-                    <li>Developed a web interface with document sharing and chat functionalities</li>
-                    <li>Led task delegation and prioritized accessibility features</li>
-                </ul>
-                <a href="projects/group-collaboration.html" class="btn">View Details</a>
-            </div>
-        </section>
-
-        <section id="experience" class="card">
-            <h2>Work Experience</h2>
-            <div class="experience-item">
-                <h3>Junior Systems Analyst (Internship)</h3>
-                <p class="company">Government of Manitoba</p>
-                <p class="date">05/2024 - Present</p>
-                <ul>
-                    <li>Analyze and streamline systems, boosting efficiency by 20%</li>
-                    <li>Conduct system testing and troubleshooting</li>
-                    <li>Prepare technical documentation for system upgrades</li>
-                </ul>
-            </div>
-            
-            <div class="experience-item">
-                <h3>Digital Tutor</h3>
-                <p class="company">University of Manitoba</p>
-                <p class="date">11/2023 - Present</p>
-                <ul>
-                    <li>Assist instructors and students with multimodal projects</li>
-                    <li>Guide students in digital content creation and file management</li>
-                </ul>
-            </div>
-            
-            <!-- Additional work experience items would go here -->
-        </section>
-
-        <section id="contact" class="card">
-            <h2>Contact Me</h2>
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> dhvanithakkar2003@gmail.com</p>
-                <p><i class="fas fa-phone"></i> (204)-952 4979</p>
-                <p><i class="fas fa-map-marker-alt"></i> Winnipeg, MB</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Dhvani Thakkar. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/dhvanithakkar29/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:dhvanithakkar2003@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
+        <div class="project-item">
+          <h4>ReShop Android App</h4>
+          <p><em>May 2024 – August 2024</em></p>
+          <ul>
+            <li>Led a team to create a Depop-style mobile platform for buying and selling.</li>
+            <li>Implemented secure login, user profiles, and item listing functionality.</li>
+          </ul>
         </div>
-    </footer>
-
-    <script src="scripts/main.js"></script>
-
+        <div class="project-item">
+          <h4>FIFA 2022 Players Database</h4>
+          <p><em>September 2023 – December 2023</em></p>
+          <ul>
+            <li>Designed SQL schema and ETL process to normalize a 19,000+ row dataset.</li>
+            <li>Enabled interactive query generation for football analytics.</li>
+          </ul>
+        </div>
+        <div class="project-item">
+          <h4>Group Collaboration System</h4>
+          <p><em>September 2022 – December 2022</em></p>
+          <ul>
+            <li>Built a collaborative web app with document sharing and live messaging.</li>
+            <li>Focused on accessibility-first UI and real-time sync.</li>
+          </ul>
+        </div>
+      </section>
+  
+      <section id="experience" class="card">
+        <div class="section-header">
+          <lottie-player src="https://lottie.host/ccf15eb5-f19e-4420-ae4b-f2d5c22cf4d8/LWq7kVkAz6.json" background="transparent" speed="1" loop autoplay></lottie-player>
+          <h2>Work Experience</h2>
+        </div>
+        <div class="experience-item">
+          <h4>Junior Systems Analyst – Government of Manitoba</h4>
+          <p><em>May 2024 – Present</em></p>
+          <ul>
+            <li>Streamlined internal tools and improved system efficiency by 20%.</li>
+            <li>Maintained technical documentation and ensured platform stability.</li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <h4>Digital Tutor – University of Manitoba</h4>
+          <p><em>November 2023 – Present</em></p>
+          <ul>
+            <li>Assisted students with digital design and project development.</li>
+            <li>Mentored on digital humanities, academic presentation, and tools.</li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <h4>Applications Assistant – Antec Controls</h4>
+          <p><em>May 2023 – September 2023</em></p>
+          <ul>
+            <li>Executed 30+ benchtop tests to detect integration flaws.</li>
+            <li>Reduced product cycle by 30% with early-stage bug detection.</li>
+          </ul>
+        </div>
+      </section>
+  
+      <section id="volunteering" class="card">
+        <div class="section-header">
+          <lottie-player src="https://lottie.host/6ce9f5a4-07d4-4487-9ff8-50327bc3fce5/nrj4QBYVxl.json" background="transparent" speed="1" loop autoplay></lottie-player>
+          <h2>Volunteering</h2>
+        </div>
+        <div class="volunteer-item">
+          <h4>Vice President – Women in Computer Science</h4>
+          <p><em>May 2023 – Present</em></p>
+          <ul>
+            <li>Led mentoring programs, panels, and events for 60+ members.</li>
+            <li>Secured sponsorships and organized inclusive tech initiatives.</li>
+          </ul>
+        </div>
+        <div class="volunteer-item">
+          <h4>Director of Communications – CCUBED</h4>
+          <p><em>March 2023 – April 2024</em></p>
+          <ul>
+            <li>Managed communications and boosted national event turnout.</li>
+            <li>Designed digital posters and media for campaigns.</li>
+          </ul>
+        </div>
+        <div class="volunteer-item">
+          <h4>Social Media Coordinator – WICS</h4>
+          <p><em>May 2022 – April 2023</em></p>
+          <ul>
+            <li>Ran social accounts and grew community engagement by 85%.</li>
+            <li>Coordinated outreach with industry partners and student groups.</li>
+          </ul>
+        </div>
+      </section>
+</main>
+<footer>
+  <div class="container">
+    <p>&copy; 2024 Dhvani Thakkar. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/dhvanithakkar29/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:dhvanithakkar2003@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+<script src="scripts/main.js"></script>
 </body>
 </html>

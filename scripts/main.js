@@ -11,7 +11,37 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Form submission handling
 const contactForm = document.getElementById('contact-form');
-if (contactForm) {
+if (contactForm) {// Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    
+    // Fade in effect on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.card').forEach(card => {
+      observer.observe(card);
+    });
+    
+    // Form interaction
+    const form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert("Thanks for reaching out! I'll be in touch soon.");
+        form.reset();
+      });
+    }
+    
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
