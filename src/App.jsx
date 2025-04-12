@@ -151,7 +151,7 @@ export default function App() {
           transition={{ duration: 1 }}
         >
           <img
-            src="/profile.jpg"
+            src="/dist/profile.jpg"
             alt="Dhvani Thakkar"
             className="w-32 h-32 rounded-full mx-auto shadow-lg mb-6"
           />
@@ -163,7 +163,7 @@ export default function App() {
           </p>
           <div className="mt-6">
             <a
-              href="/Dhvani_Thakkar_Resume.pdf"
+              href="/dist/Dhvani_Thakkar_Resume.pdf"
               className="bg-pink-500 text-white px-4 py-2 rounded-full shadow hover:bg-pink-400"
               download
             >
