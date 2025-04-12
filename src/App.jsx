@@ -151,10 +151,11 @@ export default function App() {
           transition={{ duration: 1 }}
         >
           <img
-            src="/dist/profile.jpg"
+            src="/dhvani-thakkar-portfolio/profile.jpg"
             alt="Dhvani Thakkar"
             className="w-32 h-32 rounded-full mx-auto shadow-lg mb-6"
           />
+
           <h2 className="text-4xl font-semibold mb-4">
             Hi, I'm <span className="text-pink-500">Dhvani Thakkar</span> ✨
           </h2>
@@ -162,13 +163,13 @@ export default function App() {
             A passionate fourth year Computer Science and Statistics student at University of Manitoba with a flair for building beautiful, efficient, and impactful web and software solutions.
           </p>
           <div className="mt-6">
-            <a
-              href="/dist/Dhvani_Thakkar_Resume.pdf"
-              className="bg-pink-500 text-white px-4 py-2 rounded-full shadow hover:bg-pink-400"
-              download
-            >
-              Download Resume
-            </a>
+          <a
+            href="/dhvani-thakkar-portfolio/Dhvani_Thakkar_Resume.pdf"
+            className="bg-pink-500 text-white px-4 py-2 rounded-full shadow hover:bg-pink-400"
+            download
+          >
+            Download Resume
+          </a>
           </div>
         </motion.section>
 
