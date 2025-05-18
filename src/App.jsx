@@ -25,6 +25,25 @@ export default function App() {
     return () => document.removeEventListener("mousemove", moveTrail);
   }, []);
 
+  const [activeSection, setActiveSection] = useState("");
+
+useEffect(() => {
+  const sections = document.querySelectorAll("section[id]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+  return () => sections.forEach((section) => observer.unobserve(section));
+}, []);
+
   const skillCategories = {
     "Languages & Frameworks": [ "Java", "JavaScript","ReactJS", "Node.js", "Next.js", "C", "C++", "R", "SQL", "Python"],
     "Tools": [ "Git", "Azure DevOps", "AWS", "Google Cloud", "Docker", "Postman", "CI/CD", "Agile Methodologies"],
@@ -51,39 +70,50 @@ export default function App() {
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-8 py-12 relative z-10">
-        <header className="flex flex-col sm:flex-row justify-between items-center mb-16 w-full gap-y-4">
-          <nav className="flex flex-wrap justify-center gap-6 text-sm sm:text-base font-semibold">
-            {navItems.map(({ label, href }) => (
-              <a key={label} href={href} className="hover:text-pink-500 transition-colors duration-300">
-                {label}
-              </a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-4">
-            <a href="https://github.com/Dhvani-Thakkar" target="_blank" rel="noopener noreferrer">
-              <FaGithub className="text-xl hover:text-pink-500 transition duration-300" />
-            </a>
-            <a href="https://www.linkedin.com/in/dhvanithakkar29/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin className="text-xl hover:text-pink-500 transition duration-300" />
-            </a>
-            <a href="mailto:dhvanithakkar2003@gmail.com">
-              <FaEnvelope className="text-xl hover:text-pink-500 transition duration-300" />
-            </a>
-            <Switch
-              checked={darkMode}
-              onChange={setDarkMode}
-              className={`${
-                darkMode ? "bg-pink-300" : "bg-gray-300"
-              } relative inline-flex h-6 w-11 items-center rounded-full`}
-            >
-              <span
-                className={`${
-                  darkMode ? "translate-x-6" : "translate-x-1"
-                } inline-block h-4 w-4 transform rounded-full bg-white transition`}
-              />
-            </Switch>
-          </div>
-        </header>
+      <header className="sticky top-0 z-50 bg-pink-50 dark:bg-gray-900 backdrop-blur bg-opacity-90 transition-shadow shadow-md px-4 py-3">
+    <div className="max-w-7xl mx-auto flex justify-between items-center">
+      {/* Left - Nav */}
+      <nav className="flex gap-6 text-sm sm:text-base font-semibold">
+        {navItems.map(({ label, href }) => (
+          <a
+            key={label}
+            href={href}
+            className={`transition-colors duration-300 ${
+              activeSection === href.replace("#", "") ? "text-pink-500 font-bold" : "text-gray-600"
+            }`}
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+
+      {/* Right - Icons + Toggle */}
+      <div className="flex items-center gap-4">
+        <a href="https://github.com/Dhvani-Thakkar" target="_blank" rel="noopener noreferrer">
+          <FaGithub className="text-xl hover:text-pink-500 transition duration-300" />
+        </a>
+        <a href="https://www.linkedin.com/in/dhvanithakkar29/" target="_blank" rel="noopener noreferrer">
+          <FaLinkedin className="text-xl hover:text-pink-500 transition duration-300" />
+        </a>
+        <a href="mailto:dhvanithakkar2003@gmail.com">
+          <FaEnvelope className="text-xl hover:text-pink-500 transition duration-300" />
+        </a>
+        <Switch
+          checked={darkMode}
+          onChange={setDarkMode}
+          className={`${
+            darkMode ? "bg-pink-300" : "bg-gray-300"
+          } relative inline-flex h-6 w-11 items-center rounded-full`}
+        >
+          <span
+            className={`${
+              darkMode ? "translate-x-6" : "translate-x-1"
+            } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+          />
+        </Switch>
+      </div>
+    </div>
+  </header>
 
         <style>{`
           html, body {
@@ -160,7 +190,7 @@ export default function App() {
             Hi, I'm <span className="text-pink-500">Dhvani Thakkar</span> ✨
           </h2>
           <p className="text-lg max-w-xl mx-auto">
-            A passionate fourth year Computer Science and Statistics student at University of Manitoba with a flair for building beautiful, efficient, and impactful web and software solutions.
+            A passionate final year Computer Science and Statistics student at University of Manitoba with a flair for building beautiful, efficient, and impactful web and software solutions.
           </p>
           <div className="mt-6">
           <a
@@ -226,9 +256,9 @@ export default function App() {
                   company: "Government of Manitoba",
                   duration: "May 2024 – Present",
                   bullets: [
-                    "Analyze and streamline systems, boosting efficiency by 20% to enhance productivity and reduce resource use.",
-                    "Conduct system testing and troubleshooting on 4 internal tools, optimizing performance and ensuring high availability.",
-                    "Prepare technical documentation to support system upgrades and serve as a reference for a team of 8."
+                    "Build and maintain 3 digital tools replacing paper-based emergency reports, cutting reporting time by 60%.",
+                    "Analyze 1,000+ business records for a continuity tool, supporting Manitoba’s pandemic response.",
+                    "Document system upgrades, access controls, and workflows to support knowledge transfer across an 8-person team."
                   ]
                 },
                 {
@@ -274,6 +304,7 @@ export default function App() {
                 title: "EduNova Web Interface",
                 tech: "ReactJs, Node.js, DynamoDB, AWS S3, Ollama",
                 duration: "Jan 2025 – Apr 2025",
+                github:"https://github.com/Dhvani-Thakkar/industrialProject",
                 bullets: [
                   "Implemented a web-based educational chatbot with a team of 3 for the Government of Canada.",
                   "Enabled self-paced learning and reduced instructor dependency through automated, conversational explanations."
@@ -283,6 +314,7 @@ export default function App() {
                 title: "ReShop Android App",
                 tech: "Java, SQL, HTML, CSS, Agile Methodologies",
                 duration: "May 2024 – Aug 2024",
+                github:"https://github.com/Dhvani-Thakkar/ReShop",
                 bullets: [
                   "Created an e-commerce platform with a team of 5 members.",
                   "Integrated user authentication and dynamic item listings using Agile development methodology."
@@ -292,11 +324,23 @@ export default function App() {
                 title: "FIFA 2022 Players Database",
                 tech: "Java, SQL",
                 duration: "Sep 2023 – Dec 2023",
+                github:"https://github.com/Dhvani-Thakkar/database-project",
                 bullets: [
                   "Developed efficient SQL scripts for extracting large datasets from a normalized database of over 19,000 entries.",
                   "Improved data usability for fast insights during analysis."
                 ]
+              },
+              {
+                title: "Group Collaboration System",
+                tech: "HTML, JavaScript, CSS",
+                duration: "Sep 2022 – Dec 2022",
+                bullets: [
+                "Collaborated in a team of 5 to design and build a web-based collaboration tool with document sharing, improving remote team accessibility and project coordination by 40%.",
+                "Developed and deployed a real-time chat system to streamline internal communication, reducing response time between team members by over 50%"
+                ]
               }
+
+
             ].map((proj, i) => (
               <motion.li
                 key={i}
@@ -305,7 +349,14 @@ export default function App() {
               >
                 <div className="flex justify-between items-start mb-2">
                   <div>
-                    <h4 className="text-xl font-semibold">{proj.title}</h4>
+                  <h4 className="text-xl font-semibold flex items-center gap-2">
+                    {proj.title}
+                    {proj.github && (
+                      <a href={proj.github} target="_blank" rel="noopener noreferrer">
+                        <FaGithub className="text-[18px] mt-[2px] text-gray-600 hover:text-pink-500 hover:scale-110 transition duration-200" />
+                      </a>
+                    )}
+                  </h4>
                     <p className="text-sm italic text-pink-600">{proj.tech}</p>
                   </div>
                   <p className="text-sm italic text-gray-500">{proj.duration}</p>
@@ -326,7 +377,7 @@ export default function App() {
           <ul className="space-y-10">
             {[
               {
-                role: "Vice President",
+                title: "Vice President",
                 org: "UMWICS",
                 duration: "May 2023 – Apr 2025",
                 bullets: [
@@ -335,7 +386,7 @@ export default function App() {
                 ]
               },
               {
-                role: "Director of Communications",
+                title: "Director of Communications",
                 org: "CCUBED",
                 duration: "Mar 2023 – Apr 2024",
                 bullets: [
@@ -344,7 +395,7 @@ export default function App() {
                 ]
               },
               {
-                role: "Social Media Coordinator",
+                title: "Social Media Coordinator",
                 org: "UMWICS",
                 duration: "May 2022 – Apr 2023",
                 bullets: [
@@ -359,7 +410,10 @@ export default function App() {
                 className="relative bg-white dark:bg-gray-100 text-black p-6 rounded-lg shadow transition-all duration-300"
               >
                 <div className="flex justify-between items-start mb-2">
-                  <h4 className="text-xl font-semibold">{vol.role} – {vol.org}</h4>
+                  <div>
+                    <h4 className="text-xl font-semibold">{vol.title}</h4>
+                    <p className="text-sm italic text-pink-600">{vol.org}</p>
+                  </div>
                   <p className="text-sm italic text-gray-500">{vol.duration}</p>
                 </div>
                 <ul className="list-disc list-inside text-sm space-y-1">
