@@ -46,7 +46,7 @@ useEffect(() => {
 
   const skillCategories = {
     "Languages & Frameworks": [ "Java", "JavaScript","ReactJS", "Node.js", "Next.js", "C", "C++", "R", "SQL", "Python"],
-    "Tools": [ "Git", "Azure DevOps", "AWS", "Google Cloud", "Docker", "Postman", "CI/CD", "Agile Methodologies"],
+    "Tools": [ "Github", "Azure DevOps", "AWS", "Google Cloud", "Docker", "Postman", "CI/CD", "Agile Methodologies"],
     "Software & Analytics": ["IntelliJ IDEA", "VS Code", "Android Studio", "RStudio", "CLion", "Power BI", "CSS", "REST APIs"],
     "Databases": ["MongoDB", "DynamoDB", "SQLite", "Neo4j"]
   };
