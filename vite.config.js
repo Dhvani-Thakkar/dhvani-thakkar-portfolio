@@ -2,6 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  base: '/dhvani-thakkar-portfolio/', // 👈 use your repo name here
   plugins: [react()],
-  base: '/dhvani-thakkar-portfolio/' 
 });
